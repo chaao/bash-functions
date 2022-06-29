@@ -21,7 +21,7 @@ fi
 echo "Current Version: $CURRENT_VERSION"
 
 
-[[ $CURRENT_VERSION =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)(-([0-9]+))? ]]
+[[ $CURRENT_VERSION =~ ^v?([0-9]+)\.([0-9]+)\.([0-9]+)(-([0-9]+))? ]]
 MAJOR="${BASH_REMATCH[1]}"
 MINOR="${BASH_REMATCH[2]}"
 PATCH="${BASH_REMATCH[3]}"
@@ -50,7 +50,7 @@ fi
 
 
 #create new tag
-NEW_TAG="$MAJOR.$MINOR.$PATCH$ALPHA"
+NEW_TAG="v$MAJOR.$MINOR.$PATCH$ALPHA"
 echo "($PART) updating $CURRENT_VERSION to $NEW_TAG"
 
 #get current hash and see if it already has a tag
