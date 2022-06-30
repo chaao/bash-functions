@@ -59,7 +59,7 @@ NEEDS_TAG=`git describe --contains $GIT_COMMIT 2>/dev/null`
 
 #only tag if no tag already
 if [ -z "$NEEDS_TAG" ]; then
-  git tag $NEW_TAG
+  git tag $NEW_TAG -m "$(git log --graph --topo-order --date=iso8601-strict --abbrev-commit --decorate --boundary --pretty=format:'%ad %h -%d %s [%cn]'  ...$CURRENT_VERSION)"
   git push origin $NEW_TAG
   echo "Tagged with $NEW_TAG"
 else
