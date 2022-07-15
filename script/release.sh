@@ -16,7 +16,7 @@ CURRENT_VERSION=`git describe --abbrev=0 --tags 2>/dev/null`
 
 if [[ $CURRENT_VERSION == '' ]]
 then
-  CURRENT_VERSION='v1.0.0'
+  CURRENT_VERSION='v0.0.0'
 fi
 echo "Current Version: $CURRENT_VERSION"
 
@@ -32,13 +32,16 @@ then
   MAJOR=$((MAJOR+1))
   MINOR="0"
   PATCH="0"
+  ALPHA=""
 elif [[ $PART == 'minor' ]]
 then
   MINOR=$((MINOR+1))
   PATCH="0"
+  ALPHA=""
 elif [[ $PART == 'patch' ]]
 then
   PATCH=$((PATCH+1))
+  ALPHA=""
 elif [[ $PART == 'alpha' ]]
 then
   ALPHA="-$((ALPHA+1))"
